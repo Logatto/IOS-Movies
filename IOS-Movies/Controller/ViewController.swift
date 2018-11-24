@@ -26,7 +26,6 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             switch result {
             case .success(let moviesResult):
                 self.movies = moviesResult.results
-                print("MOVies ", self.movies)
                 self.collectionView.reloadData()
             case .failure(let error):
                 print(error.localizedDescription)
@@ -36,41 +35,24 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("MOVIES ", self.movies.count)
         return self.movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
         let movie = self.movies[indexPath.item]
-        do {
-            let url = URL(string: Contants.urlImage+movie.poster_path)
-            let data = try Data(contentsOf: url!)
-            cell.imageView.image = UIImage(data: data)
-        }
-        catch{
-            print(error)
-        }
+        cell.imageView.image = movie.getImagePoster()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("EPA ", indexPath.item)
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        
+        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
+        nextViewController.data = self.movies[indexPath.item]
+    
+        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
-    
-
-//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-//        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
-//            navigationController?.setNavigationBarHidden(true, animated: true)
-//            print("HIDE")
-//           
-//        } else {
-//            navigationController?.setNavigationBarHidden(false, animated: true)
-//            print("SHOW")
-//        }
-//    }
-    
-   
 
 }
 
