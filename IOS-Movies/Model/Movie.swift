@@ -39,4 +39,15 @@ struct Movie: Codable {
         }
         return UIImage(named: "placeholder")!
     }
+    
+    func getYear() -> String {
+        let dateFormatterGet = DateFormatter()
+        dateFormatterGet.dateFormat = "yyyy-MM-dd"
+        
+        let yearFormatterPrint = DateFormatter()
+        yearFormatterPrint.dateFormat = "yyyy"
+        
+        let dateResult: NSDate? = self.release_date as NSDate
+        return yearFormatterPrint.string(from: dateResult! as Date)
+    }
 }

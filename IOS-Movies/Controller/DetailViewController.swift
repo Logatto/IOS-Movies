@@ -22,7 +22,7 @@ class DetailViewController: UIViewController {
         titleDetail.title = self.data.title
         textDetail.text = self.data.overview
         imageDetail.image = self.data.getImageBackdrop()
-        textYear.text = self.data.release_date.description
+        textYear.text = self.data.getYear()
 
         // Do any additional setup after loading the view.
     }
