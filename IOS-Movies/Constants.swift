@@ -12,4 +12,5 @@ import Foundation
 struct Contants{
     static let apiKey : String = "838760c961ce66d2e09873d46d4551da"
     static let urlApi : String = "https://api.themoviedb.org/3"
+    static let urlImage: String = "https://image.tmdb.org/t/p/w500"
 }
