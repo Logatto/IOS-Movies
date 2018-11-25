@@ -11,12 +11,13 @@ import Alamofire
 
 class APIMovie {
     static let url = Contants.urlApi+"/movie/popular"
-    static let params : Parameters = [
+    static var params : Parameters = [
         "api_key" : Contants.apiKey,
         ]
     
-    static func getMovies(completion:@escaping (Result<ObjectList>)->Void) {
+    static func getMovies(page:Int, completion:@escaping (Result<ObjectList>)->Void) {
         let jsonDecoder = JSONDecoder()
+        params["page"] = page
         jsonDecoder.dateDecodingStrategy = .formatted(DateFormatter.dateFormatter)
         AF.request(URL(string: url)!,parameters: params)
             .responseJSONDecodable (decoder: jsonDecoder){ (response: DataResponse<ObjectList>) in
