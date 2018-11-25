@@ -12,6 +12,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     @IBOutlet weak var collectionView: UICollectionView!
     var movies : [Movie] = []
+    var currentPage = 1
+    var isLoadData = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,12 +23,19 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     func loadMovies(){
-        APIMovie.getMovies{ result in
+        
+        isLoadData = true
+        
+        APIMovie.getMovies(page: self.currentPage){ result in
             switch result {
             case .success(let moviesResult):
-                self.movies = moviesResult.results
+                
+                self.movies.append(contentsOf: moviesResult.results)
                 self.collectionView.reloadData()
                 self.resizeCells()
+                self.isLoadData = false
+                self.currentPage+=1
+                
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -65,6 +74,18 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        // load more Movies next page
+        let offsetY = scrollView.contentOffset.y
+        let contentHeight = scrollView.contentSize.height
+        
+        if(offsetY > contentHeight - scrollView.frame.height){
+            if(!isLoadData){
+                loadMovies()
+            }
+        }
+        
+        // Hide or show NavigationBar
         if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
             navigationController?.setNavigationBarHidden(true, animated: true)
         } else {
