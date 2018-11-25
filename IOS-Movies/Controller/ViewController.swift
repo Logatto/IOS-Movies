@@ -18,8 +18,16 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view, typically from a nib.
-        loadMovies()
+//        UserDefaults.standard.removeObject(forKey: "page")
+//        UserDefaults.standard.removeObject(forKey: "movies")
+        
+        movies = Persist.readMovies()
+        currentPage = Persist.readPage()
+        
+        if(currentPage == 1){
+            loadMovies()
+        }
+        
     }
     
     func loadMovies(){
@@ -35,6 +43,9 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
                 self.resizeCells()
                 self.isLoadData = false
                 self.currentPage+=1
+                
+                Persist.setPage(page: self.currentPage)
+                Persist.setMovies(movies: self.movies)
                 
             case .failure(let error):
                 print(error.localizedDescription)
