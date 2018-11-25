@@ -19,6 +19,8 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.setNavigationBarHidden(false, animated: true)
+        
         titleDetail.title = self.data.title
         textDetail.text = self.data.overview
         imageDetail.image = self.data.getImageBackdrop()

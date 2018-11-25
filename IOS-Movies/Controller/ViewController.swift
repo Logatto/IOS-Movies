@@ -11,7 +11,6 @@ import UIKit
 class ViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBOutlet weak var navigationBar: UINavigationBar!
     var movies : [Movie] = []
     
     override func viewDidLoad() {
@@ -27,10 +26,20 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             case .success(let moviesResult):
                 self.movies = moviesResult.results
                 self.collectionView.reloadData()
+                self.resizeCells()
             case .failure(let error):
                 print(error.localizedDescription)
             }
         }
+    }
+    
+    
+    func resizeCells(){
+        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
+        layout.minimumInteritemSpacing = 2
+        let size = self.collectionView.frame.size
+        layout.itemSize = CGSize(width: (size.width-20)/3 , height: size.height/4)
     }
     
     
@@ -52,6 +61,15 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         nextViewController.data = self.movies[indexPath.item]
     
         self.navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.panGestureRecognizer.translation(in: scrollView).y < 0 {
+            navigationController?.setNavigationBarHidden(true, animated: true)
+        } else {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
     }
 
 }
