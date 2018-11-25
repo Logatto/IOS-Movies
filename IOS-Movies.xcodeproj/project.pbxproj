@@ -15,6 +15,7 @@
 		941D054D21A8EBFC00050A7C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 941D054C21A8EBFC00050A7C /* Assets.xcassets */; };
 		941D055021A8EBFC00050A7C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 941D054E21A8EBFC00050A7C /* LaunchScreen.storyboard */; };
 		94BDC1DC21A9D78C003E2184 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94BDC1DB21A9D78C003E2184 /* DetailViewController.swift */; };
+		94E0B2A021AA324800BFD3C0 /* Persist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E0B29F21AA324800BFD3C0 /* Persist.swift */; };
 		94E6D3ED21A8F15A00CB9073 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6D3EC21A8F15A00CB9073 /* Movie.swift */; };
 		94E6D3EF21A8F1C100CB9073 /* ObjectList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6D3EE21A8F1C100CB9073 /* ObjectList.swift */; };
 		94E6D3F221A8F23E00CB9073 /* APIMovie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E6D3F121A8F23E00CB9073 /* APIMovie.swift */; };
@@ -35,6 +36,7 @@
 		941D054F21A8EBFC00050A7C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		941D055121A8EBFC00050A7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94BDC1DB21A9D78C003E2184 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		94E0B29F21AA324800BFD3C0 /* Persist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persist.swift; sourceTree = "<group>"; };
 		94E6D3EC21A8F15A00CB9073 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		94E6D3EE21A8F1C100CB9073 /* ObjectList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectList.swift; sourceTree = "<group>"; };
 		94E6D3F121A8F23E00CB9073 /* APIMovie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIMovie.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				94E6D3F621A8F4D200CB9073 /* DateFormatter.swift */,
+				94E0B29F21AA324800BFD3C0 /* Persist.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				94E6D3F421A8F33200CB9073 /* Constants.swift in Sources */,
 				94BDC1DC21A9D78C003E2184 /* DetailViewController.swift in Sources */,
 				941D054B21A8EBF700050A7C /* IOS_Movies.xcdatamodeld in Sources */,
+				94E0B2A021AA324800BFD3C0 /* Persist.swift in Sources */,
 				94E6D3F221A8F23E00CB9073 /* APIMovie.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
