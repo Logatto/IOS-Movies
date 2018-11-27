@@ -38,9 +38,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
             switch result {
             case .success(let moviesResult):
                 
-                self.movies.append(contentsOf: moviesResult.results)
-                self.collectionView.reloadData()
-                self.resizeCells()
+                self.addMovies(moviesNew: moviesResult.results)
+            
                 self.isLoadData = false
                 self.currentPage+=1
                 
@@ -54,22 +53,28 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
     }
     
     
+    func addMovies(moviesNew:[Movie]){
+        movies.append(contentsOf: moviesNew)
+        collectionView.reloadData()
+        resizeCells()
+    }
+    
     func resizeCells(){
-        let layout = self.collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.sectionInset = UIEdgeInsets(top: 0, left: 2, bottom: 0, right: 2)
         layout.minimumInteritemSpacing = 2
-        let size = self.collectionView.frame.size
+        let size = collectionView.frame.size
         layout.itemSize = CGSize(width: (size.width-20)/3 , height: size.height/4)
     }
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.movies.count
+        return movies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        let movie = self.movies[indexPath.item]
+        let movie = movies[indexPath.item]
         cell.imageView.image = movie.getImagePoster()
         return cell
     }
@@ -78,7 +83,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
         
         let nextViewController = storyBoard.instantiateViewController(withIdentifier: "detail") as! DetailViewController
-        nextViewController.data = self.movies[indexPath.item]
+        nextViewController.movieDetail = movies[indexPath.item]
     
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }

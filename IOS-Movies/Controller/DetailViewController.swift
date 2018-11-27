@@ -15,16 +15,16 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var titleDetail: UINavigationItem!
     @IBOutlet weak var textYear: UILabel!
     
-    var data: Movie!
+    var movieDetail: Movie!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: true)
         
-        titleDetail.title = self.data.title
-        textDetail.text = self.data.overview
-        imageDetail.image = self.data.getImageBackdrop()
-        textYear.text = self.data.getYear()
+        titleDetail.title = movieDetail.title
+        textDetail.text = movieDetail.overview
+        imageDetail.image = movieDetail.getImageBackdrop()
+        textYear.text = movieDetail.getYear()
 
         // Do any additional setup after loading the view.
     }

@@ -94,12 +94,12 @@
 				94E6D3EA21A8EF3900CB9073 /* View */,
 				94E6D3E921A8EF2000CB9073 /* Model */,
 				941D054221A8EBF700050A7C /* AppDelegate.swift */,
+				941D054621A8EBF700050A7C /* Main.storyboard */,
 				941D054C21A8EBFC00050A7C /* Assets.xcassets */,
 				941D054E21A8EBFC00050A7C /* LaunchScreen.storyboard */,
 				941D055121A8EBFC00050A7C /* Info.plist */,
 				941D054921A8EBF700050A7C /* IOS_Movies.xcdatamodeld */,
 				94E6D3F321A8F33200CB9073 /* Constants.swift */,
-				94E6D3FA21A8F99300CB9073 /* CollectionViewCell.swift */,
 			);
 			path = "IOS-Movies";
 			sourceTree = "<group>";
@@ -116,7 +116,7 @@
 		94E6D3EA21A8EF3900CB9073 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				941D054621A8EBF700050A7C /* Main.storyboard */,
+				94E6D3FA21A8F99300CB9073 /* CollectionViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

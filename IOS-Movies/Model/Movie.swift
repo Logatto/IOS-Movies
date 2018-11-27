@@ -19,7 +19,7 @@ struct Movie: Codable {
     
     func getImagePoster() -> UIImage {
         do {
-            let url = URL(string: Contants.urlImage+self.poster_path)
+            let url = URL(string: "\(Contants.urlImage)/\(Contants.posterSize)/\(self.poster_path)")
             let data = try Data(contentsOf: url!)
             return UIImage(data: data)!
         }
@@ -30,7 +30,7 @@ struct Movie: Codable {
     }
     func getImageBackdrop() -> UIImage {
         do {
-            let url = URL(string: Contants.urlImage+self.backdrop_path)
+            let url = URL(string: "\(Contants.urlImage)/\(Contants.backdropSize)/\(self.backdrop_path)")
             let data = try Data(contentsOf: url!)
             return UIImage(data: data)!
         }

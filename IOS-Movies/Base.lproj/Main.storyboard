@@ -93,8 +93,8 @@
                                                     <constraint firstAttribute="width" secondItem="N5z-Hx-Fqn" secondAttribute="height" multiplier="15:8" id="SCu-PD-9ek"/>
                                                 </constraints>
                                             </imageView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sumary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ2-0L-VVg">
-                                                <rect key="frame" x="16" y="208" width="67" height="24"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Summary" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZJ2-0L-VVg">
+                                                <rect key="frame" x="16" y="208" width="83" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                 <color key="textColor" red="0.99954229593276978" green="0.021074796095490456" blue="0.0058204038068652153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -177,7 +177,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pOe-kx-XFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1844" y="101.19940029985008"/>
+            <point key="canvasLocation" x="1844" y="106"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lsL-xL-NxT">
